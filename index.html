@@ -7,31 +7,95 @@
 
 <link href="Webteststyling.css" rel="stylesheet" type="text/css">
 <script src="WebtestScript.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">		
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 	
-
 <body>
 	
-	<nav>
-		
+		<nav>
 			<i class="fa-brands fa-github" id="gitbtn"></i>
-		 	<button class="glow-button">CONTACT</button>
-		
-	</nav>	
+		 	<button class="glow-button">TRY NOW</button>
+		</nav>
 	
-	
-<container>
-	<div class="falling-div" aria-hidden="true">
-	  <p> <span class="sr-only">let&nbsp; ;</span></p>
-			<p><span class="sr-only"><br>
-			  </span></p>
-  </div>
 		
+			<div class="message">
+				<center>
+				<div class="container">
+						
+							<p id="pop-in-text" style="font-family: 'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', Helvetica, Arial, 'sans-serif'">NOTELEY.</p>
+						
+				</div>
 
-		
-	</container>
+				<div class="container2">
+
+						<p id="pop-in-text2" >mooooving along.</p>
+
+				</div>
+				</center>
+			
+		</div>
+		<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const paragraph = document.getElementById('pop-in-text');
+			const text = paragraph.textContent;
+
+			// Variable to control the delay before text starts revealing (in milliseconds)
+			const initialDelay = 1000; // delay before start
+
+			paragraph.innerHTML = text.split('').map(char => 
+				char === ' ' ? '<span class="space"> </span>' : `<span class="char">${char}</span>`
+			).join('');
+
+			const charElements = paragraph.querySelectorAll('.char');
+
+			charElements.forEach((char, index) => {
+				setTimeout(() => {
+					char.classList.add('visible');
+				}, initialDelay + index * 50); // Add initialDelay to the existing delay
+			});
+		});
+
+		document.addEventListener('DOMContentLoaded', () => {
+			const paragraph = document.getElementById('pop-in-text2');
+			const text = paragraph.textContent;
+
+			// Variable to control the delay before text starts revealing (in milliseconds)
+			const initialDelay = 1500; // delay before start
+
+			paragraph.innerHTML = text.split('').map(char => 
+				char === ' ' ? '<span class="space"> </span>' : `<span class="char2">${char}</span>`
+			).join('');
+
+			const charElements = paragraph.querySelectorAll('.char2');
+
+			charElements.forEach((char, index) => {
+				setTimeout(() => {
+					char.classList.add('visible');
+				}, initialDelay + index * 15); // Add initialDelay to the existing delay
+			});
+		});
+
+		</script>	
 	
+		<viewer>
+			<center>
+			<script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.28/build/spline-viewer.js"></script>
+						<spline-viewer url="https://prod.spline.design/1e1Bk3VKRx5l3U3Q/scene.splinecode" class="viewer"></spline-viewer>
+			</center>
+		</viewer>
+	
+	<!--	
+		<container> 
+			<div class="falling-div visible" aria-hidden="true">
+				<center>	
+					
+				</center>
+				<p><span class="sr-only"><br></span></p>
+			</div>
+
+		</container>
+	-->
+
 </body>
 </html>
