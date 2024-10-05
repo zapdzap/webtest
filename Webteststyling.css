@@ -89,7 +89,7 @@ nav{
 		.message{
 
 			font-size: 20px;
-			margin-top: 5%;
+			margin-top: 12%;
 
 			text-align: center;
 			height: 100%;
@@ -101,15 +101,23 @@ nav{
 
 		}
 	
-		
+		.pop-in-text{
+			margin-top: 5%;
+			width: 100%;
+			text-align: center;
+			z-index: 40;
+			position: absolute;
+		}
         .falling-div {
 			position: absolute;
-			z-index: 8;
-			margin: -1% 40px 10px 40px;
-            width: 30%;
-            height: 400px;
-            background-color: white;
-            border-radius: 4rem;
+			z-index: 10;
+			width: 100%;
+			margin-top: 7%;
+			margin-left: -0.5%;
+            height: 800px;
+            background-color: #1b1f36;
+			/*background-color: #111527;*/
+            border-radius: 200rem;
             /*box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.05);*/
             opacity: 0;
             transform: translateY(-100%);
@@ -122,7 +130,7 @@ nav{
             opacity: 1;
             transform: translateY(0);
             animation: fall 1.5s ease-in-out forwards;
-			color:white;
+			color:#161A2D;
 			font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
 			text-align: left;
 			font-size: 35px;
@@ -176,12 +184,6 @@ nav{
 
 		}
 
-	.pop-in-text{
-	}
-
-	.pop-in-text2{
-	
-	}
 
 
 	.char.visible {
@@ -197,6 +199,8 @@ nav{
 		
 		
 	}
+
+
 
 	.char2.visible {
 		opacity: 1;
