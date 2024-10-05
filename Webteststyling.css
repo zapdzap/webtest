@@ -7,9 +7,13 @@ html{
 	
 	
 }
-
+container{
+	position: absolute;
+}
 .container{
-	display: flex
+	position: absolute;
+	display: flex;
+	flex-direction: column;
 }
 
 ul {
@@ -31,7 +35,11 @@ li {
             border-radius: 9999px;
             font-weight: 900;
             color: #8698cf;
-            background-image: linear-gradient(to right, #505D84, #505D84);
+			padding: 12px 24px;
+            border-radius: 9999px;
+            font-weight: 600;
+            color: white;
+            background-image: linear-gradient(to right, #60A5FA, #2563EB);
             transition: all 0.3s ease-in-out;
             border: 2px;
             cursor: pointer;
@@ -40,8 +48,8 @@ li {
 
         .glow-button:hover {
 			color: white;
-            box-shadow: 0 10px 15px -3px rgba(118, 62, 230, 0.5);
-			background-image: linear-gradient(to right, #505D84, #505D84);
+            box-shadow: 0 10px 15px -3px rgba(96, 165, 250, 0.5);
+			background-image: linear-gradient(to right, #60A5FA, #2563EB);
         }
 
 
@@ -71,7 +79,6 @@ nav{
 			margin-top: 2.5%;
 			display: flex;
 			width: 100%;
-			justify-content: center;
 		}
 		
 .viewer{
@@ -96,11 +103,12 @@ nav{
 	
 		
         .falling-div {
-			z-index: -2;
+			position: absolute;
+			z-index: 8;
 			margin: -1% 40px 10px 40px;
-            width: 30.5%;
-            height: 1000px;
-            background-color: black;
+            width: 30%;
+            height: 400px;
+            background-color: white;
             border-radius: 4rem;
             /*box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.05);*/
             opacity: 0;
@@ -232,6 +240,8 @@ nav{
                 transform: translateY(0) rotate(0deg);
                 opacity: 1;
             }
-        }.visible {
+        }
+		
+		.visible {
 			
 }
