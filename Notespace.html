@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+	
+<head>	
+<meta charset="UTF-8">	
+<title>NOTELEY</title>
+<link href="Notespace.css" rel="stylesheet" type="text/css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />	
+</head>
+
+<body id="body">	
+
+<div class="topbar">
+
+<img src="Noteicon.png" class = "noteIcon">
+
+
+</div>
+
+<div class="sidebar">
+    <div class="useritems">
+        <div class="dropdown">
+            <button id="dropdownButton" class="dropdown-button">
+                <div class="pfp"></div>
+
+                <div class="username">heyitsdemitri</div>
+
+                <span class="chevron"></span>
+            </button>
+            <div id="dropdownContent" class="dropdown-content">
+                <div class = "userchoice"><i class="fa-solid fa-pen"></i><div class = "content1">NOTES</div></div>
+                <div class = "userchoice"><i class="fa-solid fa-location-pin"></i><div class = "content1"> &nbspTASKS</div></div>
+                <div class = "userchoice"><i class="fa-solid fa-layer-group"></i><div class = "content1">ITEMS</div></div>
+                <div class = "userchoice"><i class="fa-solid fa-calendar-days"></i><div class = "content1"> &nbspDATES</div></div>
+            </div>
+        </div>
+    </div>
+ 
+
+
+
+
+</div>
+
+<script>
+const dropdownButton = document.getElementById('dropdownButton');
+        const dropdownContent = document.getElementById('dropdownContent');
+        const chevron = document.querySelector('.chevron');
+
+        dropdownButton.addEventListener('click', function(event) {
+            event.stopPropagation();
+            dropdownContent.classList.toggle('hide');
+            chevron.classList.toggle('down');
+        });
+
+        dropdownContent.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+
+
+</script>
+</body>
+</html>

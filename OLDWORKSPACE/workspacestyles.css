@@ -1,0 +1,194 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+    display: flex;
+    background-color: rgb(219, 219, 219);
+    /*background-image: url("dots3.png"); */
+
+    background-size: 500px;
+
+}
+
+.portal{
+    margin-top: 1%;
+    display: flex;
+    flex-direction: row;
+
+}
+.sidebar{
+    display: flex;
+    flex-direction: row;
+    margin-left: 2.5%;
+    padding-left: 1%;
+    padding-top: 5%;
+    padding-right: 0.5%;
+    height: 90%;
+    width: 350px;
+    background-color: rgb(245, 249, 255);
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.account_and_files{
+    height: 100%;
+    width: 100%;
+}
+
+.barDIV{
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.pfp{
+    height: 50px;
+    width: 50px;
+    background-color: rgb(192, 204, 212);
+    border-radius: 17.5px;
+}
+.username{
+    color: black;
+    font-family: "Figtree", sans-serif;
+    font-weight: 400;
+    font-size: 120%;
+    text-align: center;
+    background-color: rgb(221, 230, 236);
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 15px;
+    margin-left: 3.5px;
+}
+.homebtn{
+    color:rgb(127, 135, 141);
+    text-align:center;
+    font-size: 150%;
+    padding: 5.5px;
+    background-color: rgb(192, 204, 212);
+    margin-left: 4.5px;
+    border-radius: 12px;
+}
+
+hr{
+    margin-top: 20px;
+    margin-right: 20px;
+
+}
+
+.listItem{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    margin-left: -2.5% ;
+    padding-left: 4.5%;
+    border-radius: 12.5px;
+    height: 50px;
+    background-color: rgb(245, 249, 255);
+    transition:  0.2s ease-in-out ;
+}
+
+.listItem:hover{
+    background-color: rgba(26, 19, 15, 0.082);
+    height: 65px;
+}
+
+.listItem:hover > .docName{
+    color: rgb(62, 67, 70);
+}
+
+.docName{
+    font-family:"Figtree", sans-serif;
+    align-content: center;
+    color:rgb(127, 135, 141);
+    text-align:center;
+    font-size: 150%;
+    background-color: rgba(0, 0, 0, 0.116);
+    border-radius: 12px;
+    width: 67.5%;
+    height: 40px;
+    margin-right: 15px;
+}
+
+
+.downloadbtn{
+    color:rgb(127, 135, 141);
+    text-align:center;
+    font-size: 150%;
+    padding-top: 5.5px;
+    padding-left: 5.5px;
+    padding-right: 4px;
+    padding-bottom: 2.5px;
+    background-color: rgb(192, 204, 212);
+    border-radius: 12px;
+    width: 15%;
+    height: 30px;
+}
+
+.downloadbtn:hover{
+    color: rgb(84, 91, 95);
+}
+
+.editor{
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    text-wrap:wrap;
+    font-size: 24px;
+    display: flex;
+    padding: 5px;
+    border-radius: 20px;
+    margin-top: 1.00%;
+    margin-left: 10%;
+    background-color: rgb(255, 255, 255);
+    height: 850px;
+    width: 800px;
+}
+
+textarea{
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 24px;
+    width: 800px;
+    border-radius: 17.5px;
+    transition:  0.2s ease-in-out ;
+    border-color:rgba(0, 0, 0, 0.151);
+    font-family: Arial, Helvetica, sans-serif;
+}
+textarea:focus{
+    background-color: rgba(0, 0, 0, 0.068);
+    border-color: rgba(0, 0, 0, 0.247);
+    border-style: dashed;
+}
+
+.addfile{
+    text-align: center;
+    margin: -80px;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    margin-left: 0.0% ;
+    padding-left: 0%;
+    border-radius: 15px;
+    height: 50px;
+    transition:  0.1s ease-in-out ;
+    background-color: rgb(215, 222, 228);
+
+}
+
+.addfile:hover{
+ background-color:rgb(180, 190, 196);
+}

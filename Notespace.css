@@ -1,0 +1,181 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Kalam:wght@300;400;700&display=swap');
+
+
+body{
+    background-color: #181d25;
+}
+
+.topbar{
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    max-height: 70px;
+    background-color: #242d36;
+    box-shadow: 0px 3px 0px 0px rgba(4, 8, 22, 0.253);
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    
+}
+
+.sidebar{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 0px;
+    top: 0px;
+    width: 310px;
+    height: 100%;
+    background-color: #202c38
+}
+
+.useritems{
+    position: relative;
+    width: 100%;
+    top: 70px;
+    height: 200px;
+    background-color: transparent
+}
+
+.dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.dropdown-button {
+    height: 70px;
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+.dropdown-button:hover {
+    background-color: transparent;
+}
+
+.dropdown-content {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    box-shadow: 0px 3px 0px 0px rgba(4, 8, 22, 0.253);
+    z-index: 1;
+}
+
+.dropdown-content.hide {
+    display: none;
+}
+
+.dropdown-content a {
+    font-size: 15px;
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #bec8d3;
+    font-weight: 700;
+    font-family: "Noto Sans", sans-serif;
+
+}
+
+.dropdown-content .userchoice:hover {
+    background-color: rgb(63, 82, 100);
+    color:#ffffff;
+}
+
+
+
+.chevron {
+    color: #bec8d3;
+    border-style: solid;
+    border-width: 0.25em 0.25em 0 0;
+    content: '';
+    display: inline-block;
+    height: 0.45em;
+    width: 0.45em;
+    position: relative;
+    top: -0.10rem;
+    vertical-align: top;
+    transform: rotate(-225deg);
+    transition: transform 0.2s ease;
+}
+
+.chevron.down {
+    top: -0.15em;
+    transform: rotate(135deg);
+}
+
+.fa-solid fa-pen{
+    margin-right: 25px;
+}
+
+.userchoice{
+    font-size: 14px;
+    text-decoration: none;
+    color: #bec8d3;
+    font-weight: 700;
+    font-family: "Noto Sans", sans-serif;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition:  0.2s ease-in-out ;
+
+}
+
+.content1{
+
+    left: 25px;
+    font-size: inherit;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 700;
+    font-family: "Noto Sans", sans-serif;
+    margin-left: 20px;
+}
+
+.fa-solid fa-pen{
+    position: absolute;
+    left: 50px;
+}
+
+.pfp{
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: aqua;
+}
+
+.username{
+    margin-left: 15px;
+    color:#ffffff;
+    font-family: 'Montserrat', sans-serif;
+
+    margin-right: 25px;
+}
+
+.noteIcon{
+    height: 70px;
+    top: 10px;
+    left: -100px;
+}
