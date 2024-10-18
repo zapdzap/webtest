@@ -230,7 +230,7 @@ body{
 .navi{
     all: inherit;
     top: -45%;
-    left: 20px;
+    left: 40px;
     height: 100%;
     background-color: transparent;
     box-shadow: none;
@@ -238,6 +238,7 @@ body{
 
 
 .searchForm{
+    padding-left: 11px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -248,25 +249,24 @@ body{
 
 .search_input{
     background-color: #eee;
-    background-color: #313d49;
+    background-color: #171f27b6;
     color: rgba(255, 255, 255, 0.815);
 	border: none;
 	padding: 10px 10px;
 	font-size: 13px;
 	border-radius: 10px;
-    margin-left: 15px;
-    margin-top: 30px;
-	width: 300px;
+	width: 225px;
 	outline: none;
     font-family: 'Montserrat', sans-serif;
+    transition: 0.05s ease-in-out;
 }
 
 .search_input:hover{
-    background-color: #34414e;
+    background-color: #171f27;
 }
 
 .search_input:focus{
-    background-color: #34414e;
+    background-color: #171f27;
 }
 
 .ballicon{
@@ -306,8 +306,9 @@ body{
 }
 
 ::placeholder {
-    color: rgb(165, 165, 165);
+    color: #4b657e;
     opacity: 1; 
+    font-weight: 600;
   }
 
 .spacer{
@@ -362,7 +363,7 @@ body{
 
 .currentSpace{
     width: 235px;
-    background-color: #313d49;;
+    background-color: #313d4900;;
     top: 5px;
     position: absolute;
     z-index: 100;
@@ -432,10 +433,12 @@ body{
     background-image: url(tempcard.jpg);
     background-size: contain;
     transition:  0.1s ease-in-out ;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.75);
 }
 
 .noteCard:hover{
     margin-top: -10px;
+    box-shadow: 0 20px 15px -3px rgba(0, 0, 0, 0.75);
 }
 
 .noteInfo{
@@ -444,15 +447,20 @@ body{
     width: 100%;
     height: 50px;
     background-color: rgb(255, 255, 255);
+    background-color: #42515f;
+    background-color: #c6c9ce;
+    background-color: #202f47b7;
     bottom: 0px;
 }
 
 .noteName{
-    
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
     width: max-content;
     padding-left: 20px;
-    margin-top: 0px;
-    font-size: 20px;
+    margin-top: 1.5px;
+    font-size: 18px;
 }
 .noteDate{
     font-family: 'Montserrat', sans-serif;
@@ -470,7 +478,7 @@ body{
 /* width */
 ::-webkit-scrollbar {
     margin-left: -100px;
-    width: 20px;
+    width: 15px;
   }
   
   /* Track */
@@ -483,10 +491,20 @@ body{
   ::-webkit-scrollbar-thumb {
     margin-top: 10px;
     background: #a2b0c5;
+    background: #2b323f;
     border-radius: 10px;
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #98a6bb;
+  }
+
+  .noteTags{
+    padding-top: 75px;
+    top: 100px;
+    height: 50%;
+    width: 100%;
+    background-color: #1d4ed8;
+    background-color: #1d4fd800;
   }

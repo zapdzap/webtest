@@ -12,7 +12,7 @@
 
 <body id="body">	
 
-<h1 class="currentSpace">EMPTY WORKSPACE</h1>
+<h1 class="currentSpace" id = "currentSpace"></h1>
 
 <div class="topbar">
     <div class = "navi">
@@ -20,9 +20,6 @@
 
         <p class = "logotext" style="font-family: 'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', Helvetica, Arial, 'sans-serif'">NOTELEY</p>
 
-        <form class = "searchForm">
-            <input type="text" placeholder="Search" name="search_all" class="search_input">
-        </form>
     
 
 
@@ -31,7 +28,7 @@
 </div>
 
 <div class="sidebar">
-    <div class="useritems">
+    <div class="useritems" id ="useritems">
         <div class="dropdown">
             <button id="dropdownButton" class="dropdown-button">
                 <div class="pfp"></div>
@@ -47,6 +44,13 @@
                 <div class = "userchoice"><i class="fa-solid fa-calendar-days"></i><div class = "content1"> &nbspDATES</div></div>
             </div>
         </div>
+    </div>
+
+    <div class ="noteTags">
+        <form class = "searchForm">
+            <input type="text" placeholder="Search All Notes.." name="search_all" class="search_input">
+        </form>
+
     </div>
  
 
