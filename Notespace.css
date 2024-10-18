@@ -4,14 +4,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Kalam:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Kalam:wght@300;400;700&display=swap');
 
 
 body{
     background-color: #181d25;
+    overflow: hidden;
 }
 
 .topbar{
-    z-index: 2;
+    z-index: 10;
     position: absolute;
     top: 0;
     left: 0;
@@ -32,9 +35,25 @@ body{
     flex-direction: column;
     left: 0px;
     top: 0px;
-    width: 310px;
+    width: 14%;
+    min-width: 200px;
     height: 100%;
-    background-color: #202c38
+    background-color: #202c38;
+    box-shadow: 3px 3px 0px 0px rgba(4, 8, 22, 0.315);
+}
+
+.rightbar{
+    z-index: 5;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: 0px;
+    top: 0px;
+    width: 15.5%;
+    min-width: 200px;
+    height: 100%;
+    background-color: rgb(27, 36, 44);
+    box-shadow: -3px 3px 0px 0px rgba(4, 8, 22, 0.315);
 }
 
 .useritems{
@@ -102,6 +121,7 @@ body{
 
 
 
+
 .chevron {
     color: #bec8d3;
     border-style: solid;
@@ -161,9 +181,14 @@ body{
 .pfp{
     width: 20px;
     height: 20px;
+    max-width: 20px;
+    max-height: 20px;
     padding: 10px;
     border-radius: 20px;
     background-color: aqua;
+    background-image: url(icon.jpg);
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
 }
 
 .username{
@@ -175,7 +200,258 @@ body{
 }
 
 .noteIcon{
-    height: 70px;
+    height: 50px;
     top: 10px;
     left: -100px;
 }
+
+.logotext{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: transparent;
+    height: 100%;
+    color: rgb(240, 240, 240);
+    font-size: 35px;
+    text-align: center;
+    opacity: 1;
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    font-style: bold;
+    transition: all 0.6s ease-in-out;
+    letter-spacing: -4px;
+}
+
+.logotext:hover{
+    color: white;
+    letter-spacing: -2px;
+}
+
+.navi{
+    all: inherit;
+    top: -45%;
+    left: 20px;
+    height: 100%;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+
+.searchForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100px;
+    width: 350px;
+    background-color: transparent;
+}
+
+.search_input{
+    background-color: #eee;
+    background-color: #313d49;
+    color: rgba(255, 255, 255, 0.815);
+	border: none;
+	padding: 10px 10px;
+	font-size: 13px;
+	border-radius: 10px;
+    margin-left: 15px;
+    margin-top: 30px;
+	width: 300px;
+	outline: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.search_input:hover{
+    background-color: #34414e;
+}
+
+.search_input:focus{
+    background-color: #34414e;
+}
+
+.ballicon{
+    margin-top: 49px;
+    margin-right: 5px;
+    height: 35px;
+}
+
+.workspace{
+    justify-self: right;
+    z-index: -100;
+    position: absolute;
+    top: 90px;
+    right: 9.5%;
+    width: 75%;
+    height: 95%;
+    background-color: rgba(0, 255, 255, 0);
+}
+
+.emptyWorkspace{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    left: 0;
+    height: 90%;
+    border-radius: 25px;
+    /*background-image: url(ballicon.png); */
+    background-position: center;
+    background-position-y: 7%;
+    background-repeat: no-repeat;
+    background-size: 200px;
+    background-color: #12161b;
+    
+}
+
+::placeholder {
+    color: rgb(165, 165, 165);
+    opacity: 1; 
+  }
+
+.spacer{
+    height: 360px
+
+}
+
+.emptymsg1{
+    height: 0px;
+    color: white;
+    font-family: "Lato", sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    padding: 0;
+}
+
+.emptymsg2{
+    top: -10px;
+    color: white;
+    font-family: "Lato", sans-serif;
+    font-size: 19.5px;
+    font-weight: 500;
+    width: 600px
+}
+
+.create-button {
+    height: 45px;
+    width: 125px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    background-color: #2563eb;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.create-button:hover {
+    background-color: #1d4ed8;
+}
+
+.create-button svg {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+}
+
+.currentSpace{
+    width: 235px;
+    background-color: #313d49;;
+    top: 5px;
+    position: absolute;
+    z-index: 100;
+    font-weight: 400;
+    text-align: center;
+    left: 42.75%;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    padding: 7px 7px;
+	border-radius: 10px;
+}
+
+.spacer{
+    visibility: hidden;
+
+}
+
+.myNotes{
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    left: 0;
+    height: 90%;
+    border-radius: 25px;
+    /*background-image: url(ballicon.png); */
+    background-position: center;
+    background-position-y: 7%;
+    background-repeat: no-repeat;
+    background-size: 200px;
+    background-color: #bec6dd;
+    background-color: #b7c2d3;
+
+}
+
+.myNotesLister{
+    margin-top: 25px;
+    overflow-y: scroll;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 0%;
+    margin-right: 0%;
+    width: 95.5%;
+    height: 100%;
+    background-color: #e2e8fa00;
+}
+
+.noteCard{
+
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 300px;
+    margin-bottom: 48px;
+    margin-left: 27.5px;
+    margin-right: 20px;
+    border-radius: 15px;
+    background-color: #f1f4f7cb
+}
+
+.noteCard img{
+    width: 50%;
+    height: 50%;
+}
+
+/* width */
+::-webkit-scrollbar {
+    margin-left: -100px;
+    width: 20px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #323d4b00;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    margin-top: 10px;
+    background: #a2b0c5;
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #98a6bb;
+  }

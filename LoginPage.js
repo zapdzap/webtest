@@ -38,7 +38,3 @@ async function load(){
 	await sleep(0.1);
 	Body.style.opacity = "1";
 }
-
-function switchsite(){
-	location.href = "Notespace.html";
-}

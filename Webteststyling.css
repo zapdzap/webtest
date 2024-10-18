@@ -30,13 +30,12 @@ li {
 
 .glow-button {
 			font-size: 17px;
-			margin-left: 2%;
+			margin-left: 1%;
             padding: 12px 24px;
-            border-radius: 9999px;
+            border-radius: 25px;
             font-weight: 900;
             color: #8698cf;
-			padding: 12px 24px;
-            border-radius: 9999px;
+			padding: 11px 24px;
             font-weight: 600;
             color: white;
             background-image: linear-gradient(to right, #60A5FA, #2563EB);
@@ -65,6 +64,14 @@ nav{
 	
 }
 
+a{	
+	text-align: center;
+	color: white;
+	font-size: 35px;
+	margin-left: 15px;
+	margin-top: 5px;
+}
+
 		body{		
             justify-content: center;
             align-items: center;
@@ -82,6 +89,7 @@ nav{
 		}
 		
 .viewer{
+	visibility: hidden;
 	z-index: -5;
 	width: 30%;
 	margin-top: -1%;
@@ -111,13 +119,12 @@ nav{
         .falling-div {
 			position: absolute;
 			z-index: 10;
-			width: 100%;
+			width: 130%;
+			left: -10%;
 			margin-top: 7%;
-			margin-left: -0.5%;
             height: 800px;
             background-color: #1b1f36;
 			/*background-color: #111527;*/
-            border-radius: 200rem;
             /*box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.05);*/
             opacity: 0;
             transform: translateY(-100%);

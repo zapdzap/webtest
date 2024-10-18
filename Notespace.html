@@ -3,17 +3,30 @@
 	
 <head>	
 <meta charset="UTF-8">	
-<title>NOTELEY</title>
+<title>Noteley</title>
 <link href="Notespace.css" rel="stylesheet" type="text/css">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />	
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />	
 </head>
 
 <body id="body">	
 
+<h1 class="currentSpace">EMPTY WORKSPACE</h1>
+
 <div class="topbar">
+    <div class = "navi">
+        <img src="ballicon.png" class = "ballicon">
 
-<img src="Noteicon.png" class = "noteIcon">
+        <p class = "logotext" style="font-family: 'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', Helvetica, Arial, 'sans-serif'">NOTELEY</p>
 
+        <form class = "searchForm">
+            <input type="text" placeholder="Search" name="search_all" class="search_input">
+        </form>
+    
+
+
+    </div>
 
 </div>
 
@@ -28,7 +41,7 @@
                 <span class="chevron"></span>
             </button>
             <div id="dropdownContent" class="dropdown-content">
-                <div class = "userchoice"><i class="fa-solid fa-pen"></i><div class = "content1">NOTES</div></div>
+                <div class = "userchoice" onclick="ViewEmptyWorkspace()"><i class="fa-solid fa-pen"></i><div class = "content1">NOTES</div></div>
                 <div class = "userchoice"><i class="fa-solid fa-location-pin"></i><div class = "content1"> &nbspTASKS</div></div>
                 <div class = "userchoice"><i class="fa-solid fa-layer-group"></i><div class = "content1">ITEMS</div></div>
                 <div class = "userchoice"><i class="fa-solid fa-calendar-days"></i><div class = "content1"> &nbspDATES</div></div>
@@ -42,22 +55,101 @@
 
 </div>
 
-<script>
-const dropdownButton = document.getElementById('dropdownButton');
-        const dropdownContent = document.getElementById('dropdownContent');
-        const chevron = document.querySelector('.chevron');
+<div class="rightbar">
+    hi
+</div>
+<div class="workspace">
+    <!--
+    <div class ="emptyWorkspace" id="emptyWorkspace">
+            <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.30/build/spline-viewer.js"></script>
+            <spline-viewer url="https://prod.spline.design/aeqXVfX9JvJFLg0X/scene.splinecode" class = "spacer" id = "spacer1"></spline-viewer>
+        <p class = "emptymsg1">TIP:</p>
 
-        dropdownButton.addEventListener('click', function(event) {
-            event.stopPropagation();
-            dropdownContent.classList.toggle('hide');
-            chevron.classList.toggle('down');
-        });
+        <center><p class = "emptymsg2">According to MIT, writing down your thoughts daily vastly increases the attention span of adolescents. Furthermore writing down you thoughts allows
+            you to problem solve more easily and is directly correlated to your IQ.
+        </p>
+        </center>
 
-        dropdownContent.addEventListener('click', function(event) {
-            event.stopPropagation();
-        });
+        <center>
+        <button class="create-button" onclick="EmptyCreateNote()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
+            Create
+        </button>
+    </center>
+    </div>
+    -->
+
+    <div class = "myNotes">
+
+        <div class = "myNotesHeader">1</div>
+        <div class = "myNotesLister">
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
+            <div class = "noteCard">
+            </div>
 
 
-</script>
+        </div>
+
+
+    </div>
+
+</div>
+
+<script src="Notespace.js"></script>
 </body>
 </html>
