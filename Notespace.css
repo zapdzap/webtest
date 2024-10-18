@@ -287,12 +287,14 @@ body{
 }
 
 .emptyWorkspace{
+    margin-top: 15px;
+    padding-top: 50px;
     text-align: center;
     display: flex;
     flex-direction: column;
     width: 90%;
     left: 0;
-    height: 90%;
+    height: 85%;
     border-radius: 25px;
     /*background-image: url(ballicon.png); */
     background-position: center;

@@ -41,7 +41,7 @@
                 <span class="chevron"></span>
             </button>
             <div id="dropdownContent" class="dropdown-content">
-                <div class = "userchoice" onclick="ViewEmptyWorkspace()"><i class="fa-solid fa-pen"></i><div class = "content1">NOTES</div></div>
+                <div class = "userchoice" onclick="openUserNotes()"><i class="fa-solid fa-pen"></i><div class = "content1">NOTES</div></div>
                 <div class = "userchoice"><i class="fa-solid fa-location-pin"></i><div class = "content1"> &nbspTASKS</div></div>
                 <div class = "userchoice"><i class="fa-solid fa-layer-group"></i><div class = "content1">ITEMS</div></div>
                 <div class = "userchoice"><i class="fa-solid fa-calendar-days"></i><div class = "content1"> &nbspDATES</div></div>
@@ -58,7 +58,7 @@
 <div class="rightbar">
     hi
 </div>
-<div class="workspace">
+<div class="workspace" id = "workspace">
     
     <div class ="emptyWorkspace" id="emptyWorkspace">
             <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.30/build/spline-viewer.js"></script>
