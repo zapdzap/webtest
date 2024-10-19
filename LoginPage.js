@@ -5,6 +5,9 @@ const loginBtn = document.getElementById('login');
 const Body = document.getElementById('body');
 const LOGGINGBTN = document.getElementById("sign1");
 
+const sign_in_email = document.getElementById("sign_in_email");
+const sign_in_password = document.getElementById("sign_in_password");
+
 window.onload = load();
 
 Body.addEventListener('click', ()=>{
@@ -38,3 +41,4 @@ async function load(){
 	await sleep(0.1);
 	Body.style.opacity = "1";
 }
+

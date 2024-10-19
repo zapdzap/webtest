@@ -226,6 +226,7 @@ body{
 
 .splineview{
 	max-height: 200px;
+	visibility: hidden;
 }
 
 .email1{
