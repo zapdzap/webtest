@@ -364,19 +364,19 @@ body{
 }
 
 .currentSpace{
-    width: 235px;
+    width: 100%;
     background-color: #313d4900;;
     top: 5px;
     position: absolute;
     z-index: 100;
     font-weight: 400;
     text-align: center;
-    left: 42.75%;
     font-size: 20px;
     font-family: 'Montserrat', sans-serif;
     color: white;
     padding: 7px 7px;
 	border-radius: 10px;
+    transition: 0.5 ease-in-out;
 }
 
 .spacer{

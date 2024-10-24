@@ -4,6 +4,7 @@ const chevron = document.querySelector('.chevron');
 const workspace = document.getElementById('workspace');
 const currentSpace=document.getElementById('currentSpace');
 const useritems =document.getElementById('useritems');
+const searchInput = document.getElementById("searchForm");
 
 toggleCount = 0;
 
@@ -51,6 +52,25 @@ function openUserNotes(){
     currentSpace.innerHTML = "MY NOTES";
     
 }
+
+
+searchInput.addEventListener("input", () => {
+  // Get the search term from the input field
+  const searchTerm = searchInput.value;
+
+  // Do something with the search term
+  console.log("Searching for:", searchTerm);
+  openUserNotes();
+  currentSpace.innerHTML = 'Results for "'+searchTerm+'"';
+  if(searchTerm.length==0){
+  currentSpace.innerHTML = "MY NOTES";
+  }
+  if(searchTerm.length>=30){
+    x = searchTerm.substring(0,30)
+    currentSpace.innerHTML = 'Results for "'+x+'..."';
+  }      
+  // Perform search logic here, e.g., filter a list or send a request to a server
+});
 
 
 
