@@ -30,6 +30,7 @@ body{
 }
 
 .sidebar{
+    overflow: hidden;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -70,6 +71,7 @@ body{
 }
 
 .dropdown-button {
+    overflow: hidden;
     height: 70px;
     width: 100%;
     padding: 10px 15px;
@@ -81,6 +83,7 @@ body{
     flex-direction: row;
     justify-content: left;
     align-items: center;
+
 }
 
 .dropdown-button:hover {
@@ -179,6 +182,7 @@ body{
 }
 
 .pfp{
+    min-width: 20px;
     width: 20px;
     height: 20px;
     max-width: 20px;
@@ -196,7 +200,7 @@ body{
     color:#ffffff;
     font-family: 'Montserrat', sans-serif;
 
-    margin-right: 25px;
+    margin-right: 28px;
 }
 
 .noteIcon{
@@ -244,7 +248,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100px;
+    height: 50px;
     width: 100%;
     background-color: transparent;
 }
@@ -391,7 +395,7 @@ body{
     display: flex;
     flex-direction: column;
     width: 92%;
-    left: 0;
+    left: 0px;
     height: 90%;
     border-radius: 25px;
     /*background-image: url(ballicon.png); */
@@ -406,14 +410,14 @@ body{
 }
 
 .myNotesLister{
+    justify-content: center;
     padding-top: 25px;
     margin-top: 0px;
     overflow-y: scroll;
-    padding-left: 10px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-left: 0%;
+    margin-left: 0px;
     margin-right: 0%;
     width: 100%;
     height: 100%;
@@ -428,8 +432,8 @@ body{
     width: 250px;
     height: 300px;
     margin-bottom: 48px;
-    margin-left: 27.5px;
-    margin-right: 0px;
+    margin-left: 13.75px;
+    margin-right: 13.75px;
     border-radius: 15px;
     background-color: #f1f4f7cb;
     background-image: url(tempcard.jpg);
@@ -503,10 +507,53 @@ body{
   }
 
   .noteTags{
-    padding-top: 75px;
+    padding-top: 110px;
     top: 100px;
     height: 50%;
     width: 100%;
     background-color: #1d4ed8;
     background-color: #1d4fd800;
+  }
+
+  .shortcuts{
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .shortcutLbl{
+
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    color: #bec8d3;
+    font-weight: 700;
+    font-size: 14px;
+    font-family: "Noto Sans", sans-serif;
+    margin-bottom: 10px;
+  }
+
+  .fa-star{
+    margin-right: 15px;
+    margin-top: 2px;
+  }
+
+  .usrShortcut{
+    padding-top: 7.5px;
+    padding-bottom: 2.5px;
+    padding-left: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 550;
+    color: #bec8d3bd;
+    display: flex;
+    flex-direction: row;
+    height: 25px;
+    background-color: #1d4fd800;
+    font-size: 14px;
+  }
+
+  .usrShortcut:hover{
+    background-color: rgb(63, 82, 100);
+    color:#ffffff;
   }

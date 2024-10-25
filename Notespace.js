@@ -105,11 +105,13 @@ dropdownButton.addEventListener('click', function(event) {
                 dropdownContent.style.height = "156px";
                 useritems.style.height = "200px"
                 toggleCount=0;
+                dropdownButton.style.boxShadow =  "none";
             }
             else{
             dropdownContent.style.height = "0px";
             useritems.style.height = "40px"
             toggleCount=1;
+            dropdownButton.style.boxShadow =  "0px 3px 0px 0px rgba(4, 8, 22, 0.253)";
             }
     });
 
