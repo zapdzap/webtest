@@ -31,7 +31,7 @@ window.addEventListener('wheel', (event) => {
     const cards = document.querySelectorAll('.card');
     cards.forEach((card, index) => {
         setTimeout(() => {
-            card.style.bottom = '20px';
+            card.style.bottom = '-100px';
         }, index * 100);
         setTimeout(() =>{
             canScroll = true;
@@ -44,12 +44,9 @@ window.addEventListener('wheel', (event) => {
         if(canScroll){
             blocker.style.opacity = 1;
             cards.forEach((card, index) => {
-                //cards[index].style.position = 'relative'; 
-                cards[index].style.top = '-20px';
+                cards[index].style.bottom = '-100px';
             });
-            //cards[selectedCard].style.position = 'absolute'; 
-            cards[selectedCard].style.top = '-70px';
-            //cards[selectedCard].style.animation="0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite";
+            cards[selectedCard].style.bottom = '-30px';
 
 
             

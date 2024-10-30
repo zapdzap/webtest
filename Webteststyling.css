@@ -256,7 +256,7 @@ nav a{
 	margin-bottom: 30px;
 }
 .card {
-	z-index: 100;
+	z-index: 3001;
 	width: 300px;
 	height: 450px;
 	background-color: #ffffff;
@@ -277,6 +277,7 @@ nav a{
 }
 
 .falling-div.visible {
+	z-index: 3000;
 	opacity: 1;
 	transform: translateY(0);
 	animation: fall 1.5s ease-in-out forwards;
@@ -288,6 +289,7 @@ nav a{
 }
 
 .falling-div {
+	z-index: 3000;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
