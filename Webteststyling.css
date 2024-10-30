@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Kalam:wght@300;400;700&display=swap');
 
 html{
-	overflow-y: scroll;
+	overflow-y: hidden;
 	overflow-x: hidden;
 	
 	
@@ -30,6 +30,7 @@ li {
 }
 
 .glow-button {
+			z-index: 1000;
 			font-size: 17px;
 			margin-left: 1%;
             padding: 12px 24px;
@@ -54,6 +55,7 @@ li {
 
 
 nav{
+	z-index: 1000;
 	color: white;
 	margin-top: 2%;
 	align-items: center;
@@ -65,7 +67,8 @@ nav{
 	
 }
 
-a{	
+nav a{	
+	z-index: 1000;
 	text-align: center;
 	color: white;
 	font-size: 35px;
@@ -117,34 +120,18 @@ a{
 			z-index: 40;
 			position: absolute;
 		}
-        .falling-div {
-			position: absolute;
-			z-index: 10;
-			width: 100%;
-			left: -0.5%;
-			margin-top: 7%;
-            height: 1000px;
-            background-color: #131625;
-			/*background-color: #111527;*/
-            /*box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.05);*/
-            opacity: 0;
-            transform: translateY(-100%);
-            transition: all 1.5s ease-in-out ;
-			border-radius: 750px;
-        }
+
+		.pop-in-text2{
+			transition: all 0.5s ease-in-out;	
+		}
 
 		
 
-        .falling-div.visible {
-            opacity: 1;
-            transform: translateY(0);
-            animation: fall 1.5s ease-in-out forwards;
-			color:#131622;
-			font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
-			text-align: left;
-			font-size: 35px;
-			
-        }
+      
+
+		
+
+
 
 		.container {
 		
@@ -259,3 +246,89 @@ a{
 		.visible {
 			
 }
+
+.card-container {
+	z-index: 100;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin-top: 130px;
+	margin-bottom: 30px;
+}
+.card {
+	z-index: 100;
+	width: 300px;
+	height: 450px;
+	background-color: #ffffff;
+	border-radius: 22.5px;
+	margin: 0 10px;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+	position: relative;
+	bottom: -200px;
+	transition: bottom 0.5s ease-out, top 0.2s ease-in-out;
+	background-image: url(tempcard.jpg);
+    background-size: contain;
+}
+.toggle-btn {
+	margin-bottom: 20px;
+	padding: 10px 20px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.falling-div.visible {
+	opacity: 1;
+	transform: translateY(0);
+	animation: fall 1.5s ease-in-out forwards;
+	color:#131622;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+	text-align: left;
+	font-size: 35px;
+	padding-top: 65px;
+}
+
+.falling-div {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	position: absolute;
+	z-index: 10;
+	width: 100%;
+	left: -0.5%;
+	margin-top: 7%;
+	height: 1000px;
+	background-color: #13162500;
+	/*background-color: #111527;*/
+	/*box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.05);*/
+	opacity: 0;
+	transform: translateY(-100%);
+	transition: all 1.5s ease-in-out ;
+	border-radius: 220px;
+}
+
+.folder{
+	top: 0;
+	z-index: 3000;
+	height: 1050px;
+	width: 90%;
+	background-color: #131625;
+	border-radius: 220px;
+}
+
+.blocker{
+	z-index: 100;
+	top: 0;
+	left: 0;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #161A2D;
+	opacity: 0.0;
+	transition: all 0.5s ease-in-out ;
+}
+
+@keyframes focusCard {
+	0%   {left:0px; top:0px;}
+	50%  {left: 0px; top:75px;}
+	100% {left:0px; top:150px;}
+  }

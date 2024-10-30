@@ -25,10 +25,6 @@ loginBtn.addEventListener('click', ()=>{
 	container.classList.remove("active");
 });
 
-LOGGINGBTN.addEventListener('click', ()=>{
-	
-	switchsite()
-});
 
 
 

@@ -580,9 +580,10 @@ body{
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 25px;
-    height: 50%;
+    min-height: 20%;
     border-radius: 20px;
     align-content: flex-start;
+    height: fit-content;
   }
 
   .tagList:hover{
