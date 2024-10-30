@@ -59,7 +59,6 @@ searchInput.addEventListener("input", () => {
   const searchTerm = searchInput.value;
 
   // Do something with the search term
-  console.log("Searching for:", searchTerm);
   openUserNotes();
   currentSpace.innerHTML = 'Results for "'+searchTerm+'"';
   if(searchTerm.length==0){
