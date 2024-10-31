@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tricks Yo! </title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+</head>
+<body>
+	
+<div id="b_load">LOAD TRICKS</div>
+	
+<script type="text/javascript">
+	
+$("#b_load").mousedown(function(){
+	loadTricks();
+});
+	
+var trickArr = new Array();
+	
+function loadTricks(){
+	
+	$.getJSON('loadtricks.php?nocache=' + (new Date()).getTime(), function (data) {
+		trickArr = data.tricklist;
+		
+	})
+	.error(function(){
+		//console.log('error: json not loaded');
+		
+	})
+	.done(function() {
+		renderTricks();
+
+	});
+}
+
+function renderTricks(){
+	
+	trickTxt="";
+	
+	for (i = 0; i < trickArr.length; i++) {
+		trickTxt+=trickArr[i].trick+"<br>";
+	}
+	
+	document.getElementById("container").innerHTML = trickTxt;
+}
+	
+</script>
+	
+<div id="container"/>
+	
+</body>
+</html>
