@@ -120,3 +120,47 @@ dropdownContent.addEventListener('click', function(event) {
     });
 
 // ---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+$(document).ready(function() {
+    loadUserInfo();
+  });
+	
+var infoArr = new Array();
+	
+function loadUserInfo(){
+	
+	$.getJSON('loadtricks.php?nocache=' + (new Date()).getTime(), function (data) {
+		infoArr = data.userlist;
+		
+	})
+	.error(function(){
+		//console.log('error: json not loaded');
+		
+	})
+	.done(function() {
+		renderUserInfo();
+
+	});
+}
+
+function renderUserInfo(){
+	
+	username="";
+    email="";
+    pfpLink="";
+	
+	//for (i = 0; i < trickArr.length; i++) {
+	//	trickTxt+=trickArr[i].trick+"<br>";
+	//}
+
+	username+=infoArr[0].uname;
+    email+=infoArr[0].email;
+    pfpLink+=infoArr[0].pfp;
+
+	document.getElementById("username").innerHTML = username;
+    document.getElementById("pfp").style.backgroundImage = "url("+pfpLink+")";
+}
+	
+
+	
