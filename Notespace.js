@@ -123,6 +123,7 @@ dropdownContent.addEventListener('click', function(event) {
 
 	
 $(document).ready(function() {
+    console.log("hi");
     loadUserInfo();
   });
 	
@@ -130,8 +131,10 @@ var infoArr = new Array();
 	
 function loadUserInfo(){
 	
+    console.log("hi");
 	$.getJSON('WS_usr_info.php?nocache=' + (new Date()).getTime(), function (data) {
         console.log(data);
+        console.log("hi2");
         infoArr = data.userlist;
         console.log(infoArr);
 		
@@ -147,7 +150,7 @@ function loadUserInfo(){
 }
 
 function renderUserInfo(){
-	
+	console.log("hi");
 	username="";
     email="";
     pfpLink="";
@@ -159,7 +162,7 @@ function renderUserInfo(){
 
 	username+=infoArr[0].uname;
     email+=infoArr[0].email;
-    pfpLink+=infoArr[0].pfp;
+    pfpLink+=infoArr[0].profile;
 
 	document.getElementById("username").innerHTML = username;
     document.getElementById("pfp").style.backgroundImage = 'url("'+pfpLink+'")';
