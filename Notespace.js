@@ -6,7 +6,33 @@ const currentSpace=document.getElementById('currentSpace');
 const useritems =document.getElementById('useritems');
 const searchInput = document.getElementById("searchForm");
 
+var noteArr = new Array();
+
 toggleCount = 0;
+
+
+$(document).ready(function() {
+    fetchUserNotes();
+  });
+	
+	
+function fetchUserNotes(){
+	
+    console.log("x");
+	$.getJSON('WS_usr_notes.php?nocache=' + (new Date()).getTime(), function (data) {
+        noteArr = data.notelist;
+        console.log(noteArr);
+		
+	})
+	.error(function(){
+		//console.log('error: json not loaded');
+		
+	})
+	.done(function() {
+		renderUserInfo();
+
+	});
+}
 
 function openUserNotes(){
 
@@ -23,6 +49,7 @@ function openUserNotes(){
     myNotesLister.classList.add('myNotesLister'); 
 
     // Eventually add server component for adding each note but for now im doing this
+    /*
     for(let i = 0; i<30; i++){
         noteCard = document.createElement('div');
         noteCard.classList.add('noteCard'); 
@@ -46,6 +73,34 @@ function openUserNotes(){
         myNotesLister.append(noteCard);
     }
 
+    */
+
+    for(let i = 0; i<noteArr.length; i++){
+        noteCard = document.createElement('div');
+        noteCard.classList.add('noteCard'); 
+
+        noteInfo = document.createElement('div');
+        noteInfo.classList.add('noteInfo'); 
+
+        noteName = document.createElement('p');
+        noteName.classList.add('noteName'); 
+
+        noteDate = document.createElement('p');
+        noteDate.classList.add('noteDate'); 
+
+        noteName.innerHTML = noteArr[i].name;
+        noteDate.innerHTML = noteArr[i].date;
+
+        noteCard.append(noteInfo)
+        noteInfo.append(noteName);
+        noteInfo.append(noteDate);
+
+        myNotesLister.append(noteCard);
+    }
+
+
+
+   
     myNotes.append(myNotesLister);
     workspace.append(myNotes);
 
@@ -130,12 +185,9 @@ var infoArr = new Array();
 	
 function loadUserInfo(){
 	
-    console.log("hi");
 	$.getJSON('WS_usr_info.php?nocache=' + (new Date()).getTime(), function (data) {
         console.log(data);
-        console.log("hi2");
         infoArr = data.userlist;
-        console.log(infoArr);
 		
 	})
 	.error(function(){
@@ -149,7 +201,6 @@ function loadUserInfo(){
 }
 
 function renderUserInfo(){
-	console.log("hi");
 	username="";
     email="";
     pfpLink="";
@@ -165,8 +216,9 @@ function renderUserInfo(){
 
 	document.getElementById("username").innerHTML = username;
     document.getElementById("pfp").style.backgroundImage = 'url("'+pfpLink+'")';
-    console.log(pfpLink);
 }
 	
+// ---------------------------------------------------------------------------------------------------------------------------------------------
+
 
 	
