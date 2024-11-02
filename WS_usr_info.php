@@ -68,8 +68,8 @@ function loadData(){
 		while ($row = mysqli_fetch_assoc($result)) {
 			$userList .= '{"uname":"'.$row['uname'].'",';
 			$userList .= '"pword":"'.$row['pword'].'",';
+			$userList .= '"profile":"'.$row['profile'].'",';
 			$userList .= '"email":"'.$row['email'].'"},';
-			$userList .= '"profile":"'.$row['profile'].'"},';
 		}
 	}
 

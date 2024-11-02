@@ -131,7 +131,7 @@ var infoArr = new Array();
 function loadUserInfo(){
 	
     console.log("hi");
-	$.getJSON('WS_usr_info2.php?nocache=' + (new Date()).getTime(), function (data) {
+	$.getJSON('WS_usr_info.php?nocache=' + (new Date()).getTime(), function (data) {
         console.log(data);
         console.log("hi2");
         infoArr = data.userlist;
