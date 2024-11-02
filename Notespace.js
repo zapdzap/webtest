@@ -121,7 +121,7 @@ dropdownContent.addEventListener('click', function(event) {
 
 // ---------------------------------------------------------------------------------------------------------------------------------------------
 
-
+	
 $(document).ready(function() {
     loadUserInfo();
   });
@@ -130,8 +130,10 @@ var infoArr = new Array();
 	
 function loadUserInfo(){
 	
-	$.getJSON('loadtricks.php?nocache=' + (new Date()).getTime(), function (data) {
-		infoArr = data.userlist;
+	$.getJSON('WS_usr_info.php?nocache=' + (new Date()).getTime(), function (data) {
+        console.log(data);
+        infoArr = data.userlist;
+        console.log(infoArr);
 		
 	})
 	.error(function(){
@@ -154,12 +156,14 @@ function renderUserInfo(){
 	//	trickTxt+=trickArr[i].trick+"<br>";
 	//}
 
+
 	username+=infoArr[0].uname;
     email+=infoArr[0].email;
     pfpLink+=infoArr[0].pfp;
 
 	document.getElementById("username").innerHTML = username;
-    document.getElementById("pfp").style.backgroundImage = "url("+pfpLink+")";
+    document.getElementById("pfp").style.backgroundImage = 'url("'+pfpLink+'")';
+    console.log(pfpLink);
 }
 	
 

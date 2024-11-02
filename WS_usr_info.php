@@ -69,6 +69,7 @@ function loadData(){
 			$userList .= '{"uname":"'.$row['uname'].'",';
 			$userList .= '"pword":"'.$row['pword'].'",';
 			$userList .= '"email":"'.$row['email'].'"},';
+			$userList .= '"profile":"'.$row['profile'].'"},';
 		}
 	}
 
