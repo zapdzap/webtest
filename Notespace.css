@@ -115,12 +115,15 @@ body{
     color: #bec8d3;
     font-weight: 700;
     font-family: "Noto Sans", sans-serif;
+    
 
 }
 
 .dropdown-content .userchoice:hover {
     background-color: rgb(63, 82, 100);
     color:#ffffff;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 
@@ -151,6 +154,11 @@ body{
 }
 
 .userchoice{
+    margin-left: 15px;
+    margin-right: 15px;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
     font-size: 14px;
     text-decoration: none;
     color: #bec8d3;
@@ -162,7 +170,7 @@ body{
     align-content: center;
     padding-top: 10px;
     padding-bottom: 10px;
-    transition:  0.2s ease-in-out ;
+    transition:  0.2s ease-out ;
 
 }
 
@@ -191,7 +199,7 @@ body{
     padding: 10px;
     border-radius: 20px;
     background-color: aqua;
-    background-image: url(icon.jpg);
+    background-image: url(loader.gif);
     background-repeat: no-repeat;
     background-size: 40px 40px;
 }
@@ -204,6 +212,10 @@ body{
     margin-right: 28px;
 }
 
+.username:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
 .noteIcon{
     height: 50px;
     top: 10px;
@@ -360,6 +372,7 @@ body{
 
 .create-button:hover {
     background-color: #1d4ed8;
+    cursor: pointer;
 }
 
 .create-button svg {
@@ -444,6 +457,7 @@ body{
 }
 
 .noteCard:hover{
+    cursor: pointer;
     margin-top: -10px;
     box-shadow: 0 20px 15px -3px rgba(0, 0, 0, 0.75);
 }
@@ -552,11 +566,14 @@ body{
     height: 23.5px;
     background-color: #1d4fd800;
     font-size: 14px;
+    transition:  0.2s ease-out ;
   }
 
   .usrShortcut:hover{
+    border-radius: 10px;
     background-color: rgb(63, 82, 100);
     color:#ffffff;
+    cursor: pointer;
   }
 
   .fa-plus{
@@ -591,6 +608,9 @@ body{
   }
 
   .tag{
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
     font-family: "Dongle", sans-serif;
     font-size: 24px;
     color: #65819f;
@@ -616,4 +636,5 @@ body{
     margin-top: -1px;
     height: 30px ;
     color: #bedeff;
+    cursor: pointer;
   }

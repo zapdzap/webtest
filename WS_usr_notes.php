@@ -40,10 +40,10 @@ function loadData(){
 
 	//Define query
 
+	$profile_viewer_uid = $_GET["uid"];
+	$table1 = "notes"; // eventually grab id and add "user" to front;
 
-	$usrID = "user5"; // eventually grab id and add "user" to front;
-
-	$query = "SELECT * FROM $usrID";
+	$query = "SELECT * FROM $table1 WHERE id = '".$profile_viewer_uid."'";
 	
 	//Call query and exit if error
 	if (!$result = mysqli_query($con, $query)) {

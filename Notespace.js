@@ -5,21 +5,25 @@ const workspace = document.getElementById('workspace');
 const currentSpace=document.getElementById('currentSpace');
 const useritems =document.getElementById('useritems');
 const searchInput = document.getElementById("searchForm");
+const shortcutlister = document.getElementById("shortcuts");
 
 var noteArr = new Array();
+var shortcutArr = new Array();
 
 toggleCount = 0;
 
+useruid="5"; // USER ID!
 
 $(document).ready(function() {
     fetchUserNotes();
+    fetchloadUserShortcuts();
+    loadUserInfo();
   });
 	
 	
 function fetchUserNotes(){
 	
-    console.log("x");
-	$.getJSON('WS_usr_notes.php?nocache=' + (new Date()).getTime(), function (data) {
+	$.getJSON('WS_usr_notes.php?uid='+useruid+'&nocache=' + (new Date()).getTime(), function (data) {
         noteArr = data.notelist;
         console.log(noteArr);
 		
@@ -48,32 +52,6 @@ function openUserNotes(){
     myNotesLister = document.createElement('div');
     myNotesLister.classList.add('myNotesLister'); 
 
-    // Eventually add server component for adding each note but for now im doing this
-    /*
-    for(let i = 0; i<30; i++){
-        noteCard = document.createElement('div');
-        noteCard.classList.add('noteCard'); 
-
-        noteInfo = document.createElement('div');
-        noteInfo.classList.add('noteInfo'); 
-
-        noteName = document.createElement('p');
-        noteName.classList.add('noteName'); 
-
-        noteDate = document.createElement('p');
-        noteDate.classList.add('noteDate'); 
-
-        noteName.innerHTML = "My First Note"
-        noteDate.innerHTML = "Oct 14"
-
-        noteCard.append(noteInfo)
-        noteInfo.append(noteName);
-        noteInfo.append(noteDate);
-
-        myNotesLister.append(noteCard);
-    }
-
-    */
 
     for(let i = 0; i<noteArr.length; i++){
         noteCard = document.createElement('div');
@@ -124,6 +102,55 @@ searchInput.addEventListener("input", () => {
     currentSpace.innerHTML = 'Results for "'+x+'..."';
   }      
   // Perform search logic here, e.g., filter a list or send a request to a server
+
+  if(!(workspace.classList.contains('myNotes'))){
+    while(workspace.firstChild){
+        workspace.removeChild(workspace.firstChild);
+    }
+}
+
+myNotes = document.createElement('div');
+myNotes.classList.add('myNotes'); 
+
+myNotesLister = document.createElement('div');
+myNotesLister.classList.add('myNotesLister'); 
+
+
+for(let i = 0; i<noteArr.length; i++){
+    if(findSubstring(noteArr[i].name.toLowerCase(),searchTerm.toLowerCase())){
+        noteCard = document.createElement('div');
+        noteCard.classList.add('noteCard'); 
+
+        noteInfo = document.createElement('div');
+        noteInfo.classList.add('noteInfo'); 
+
+        noteName = document.createElement('p');
+        noteName.classList.add('noteName'); 
+
+        noteDate = document.createElement('p');
+        noteDate.classList.add('noteDate'); 
+
+        noteName.innerHTML = noteArr[i].name;
+        noteDate.innerHTML = noteArr[i].date;
+
+        noteCard.append(noteInfo)
+        noteInfo.append(noteName);
+        noteInfo.append(noteDate);
+
+        myNotesLister.append(noteCard);
+    }
+}
+
+
+
+
+myNotes.append(myNotesLister);
+workspace.append(myNotes);
+
+currentSpace.innerHTML = "MY NOTES";
+
+
+
 });
 
 
@@ -177,15 +204,11 @@ dropdownContent.addEventListener('click', function(event) {
 // ---------------------------------------------------------------------------------------------------------------------------------------------
 
 	
-$(document).ready(function() {
-    loadUserInfo();
-  });
-	
 var infoArr = new Array();
 	
 function loadUserInfo(){
 	
-	$.getJSON('WS_usr_info.php?nocache=' + (new Date()).getTime(), function (data) {
+	$.getJSON('WS_usr_info.php?uid='+useruid+'&nocache=' + (new Date()).getTime(), function (data) {
         console.log(data);
         infoArr = data.userlist;
 		
@@ -221,4 +244,62 @@ function renderUserInfo(){
 // ---------------------------------------------------------------------------------------------------------------------------------------------
 
 
-	
+function findSubstring(txt, pat) {
+    const n = txt.length;
+    const m = pat.length;
+
+    // Iterate through txt
+    for (let i = 0; i <= n - m; i++) {
+
+        // Check for substring match
+        let j;
+        for (j = 0; j < m; j++) {
+
+            // Mismatch found
+            if (txt[i + j] !== pat[j]) {
+                break;
+            }
+        }
+
+        // If we completed the inner loop, we found a match
+        if (j === m) {
+
+            // Return starting index
+            return true;
+        }
+    }
+
+    // No match found
+    return false;
+}
+
+//-----------------------------------------------------------------------------------
+
+function fetchloadUserShortcuts(){
+
+	$.getJSON('WS_usr_shortcuts.php?uid='+useruid+'&nocache=' + (new Date()).getTime(), function (data) {
+        shortcutArr = data.shortcutlist;
+        console.log(shortcutArr);	
+	})
+	.error(function(){
+		//console.log('error: json not loaded');
+		
+	})
+    .done(function() {
+        console.log("hii")
+        console.log(shortcutArr[0].shortcutname);
+        console.log(shortcutArr[1].shortcutname);
+        for(i = 0; i<shortcutArr.length;i++){
+            shortcut = document.createElement('div');
+            shortcut.classList.add('usrShortcut');
+            icon = document.createElement("i");
+            icon.classList.add("fa-location-dot");
+            shortcut.append(icon);
+            shortcut.innerHTML = shortcutArr[i].shortcutname;
+    
+            shortcutlister.append(shortcut);
+    
+        }
+
+	});
+}

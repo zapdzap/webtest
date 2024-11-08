@@ -6,7 +6,7 @@ SQL I used to create the database table on the host console
 
 CREATE TABLE demitridata(
    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-   trick varchar(255),
+   note varchar(255),
    level varchar(255)
 );
 
@@ -40,21 +40,12 @@ function loadData(){
 
 	//Define query
 
-	//$query = "SELECT * FROM demitridata";
+	$profile_viewer_uid = $_GET["uid"];
+	$table1 = "shortcuts"; // eventually grab id and add "user" to front;
 
-	$userid = $_GET["uid"];
-
-	$query = "SELECT * FROM userinfo WHERE id = '".$userid."'";
-
-
-
-
+	$query = "SELECT * FROM $table1 WHERE id = '".$profile_viewer_uid."'";
+	
 	//Call query and exit if error
-
-
-
-
-
 	if (!$result = mysqli_query($con, $query)) {
 		exit(mysqli_error($con));
 	}
@@ -62,21 +53,19 @@ function loadData(){
 	//Loop through data
 	if (mysqli_num_rows($result) > 0) {
 		
-		$userList="";
+		$noteList="";
 		
 		
 		while ($row = mysqli_fetch_assoc($result)) {
-			$userList .= '{"uname":"'.$row['uname'].'",';
-			$userList .= '"pword":"'.$row['pword'].'",';
-			$userList .= '"profile":"'.$row['profile'].'",';
-			$userList .= '"email":"'.$row['email'].'"},';
+			$noteList .= '{"id":"'.$row['id'].'",';
+			$noteList .= '"shortcutname":"'.$row['shortcutname'].'"},';
 		}
 	}
 
 	//Remove last comma for legit JSON
-	$userListEdit = substr_replace($userList, '', -1);
+	$noteListEdit = substr_replace($noteList, '', -1);
 	
-	$jsonSend = '{"userlist":['.$userListEdit.']}';
+	$jsonSend = '{"shortcutlist":['.$noteListEdit.']}';
 	
 	
 	//Output
@@ -90,8 +79,5 @@ function loadData(){
 loadData();
 
 ?>
-
-
-
 
 
