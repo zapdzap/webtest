@@ -154,8 +154,8 @@ body{
 }
 
 .userchoice{
-    margin-left: 15px;
-    margin-right: 15px;
+    margin-left: 2px;
+    margin-right: 2px;
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
