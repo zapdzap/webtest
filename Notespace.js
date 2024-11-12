@@ -6,9 +6,11 @@ const currentSpace=document.getElementById('currentSpace');
 const useritems =document.getElementById('useritems');
 const searchInput = document.getElementById("searchForm");
 const shortcutlister = document.getElementById("shortcuts");
+const taglister = document.getElementById("tagList");
 
 var noteArr = new Array();
 var shortcutArr = new Array();
+var tagArr = new Array();
 
 toggleCount = 0;
 
@@ -18,6 +20,7 @@ $(document).ready(function() {
     fetchUserNotes();
     fetchloadUserShortcuts();
     loadUserInfo();
+    fetchloadUserTags();
   });
 	
 	
@@ -25,7 +28,6 @@ function fetchUserNotes(){
 	
 	$.getJSON('WS_usr_notes.php?uid='+useruid+'&nocache=' + (new Date()).getTime(), function (data) {
         noteArr = data.notelist;
-        console.log(noteArr);
 		
 	})
 	.error(function(){
@@ -60,6 +62,12 @@ function openUserNotes(){
         noteInfo = document.createElement('div');
         noteInfo.classList.add('noteInfo'); 
 
+        noteInfo2 = document.createElement('div');
+        noteInfo2.classList.add('noteInfo2'); 
+
+        noteHeader = document.createElement('div');
+        noteHeader.classList.add('noteHeader');
+
         noteName = document.createElement('p');
         noteName.classList.add('noteName'); 
 
@@ -69,9 +77,22 @@ function openUserNotes(){
         noteName.innerHTML = noteArr[i].name;
         noteDate.innerHTML = noteArr[i].date;
 
-        noteCard.append(noteInfo)
+        tag = document.createElement('div');
+        tag.classList.add('tag2');
+        tag.innerHTML = "school";
+
+        tag3 = document.createElement('div');
+        tag3.classList.add('tag2');
+        tag3.innerHTML = "work";
+
+        noteCard.append(noteHeader)
+        noteHeader.append(noteInfo);
+        noteHeader.append(noteInfo2)
         noteInfo.append(noteName);
         noteInfo.append(noteDate);
+        noteInfo2.append(tag);
+        noteInfo2.append(tag3);
+      
 
         myNotesLister.append(noteCard);
     }
@@ -124,6 +145,12 @@ for(let i = 0; i<noteArr.length; i++){
         noteInfo = document.createElement('div');
         noteInfo.classList.add('noteInfo'); 
 
+        noteInfo2 = document.createElement('div');
+        noteInfo2.classList.add('noteInfo2'); 
+
+        noteHeader = document.createElement('div');
+        noteHeader.classList.add('noteHeader');
+
         noteName = document.createElement('p');
         noteName.classList.add('noteName'); 
 
@@ -133,9 +160,22 @@ for(let i = 0; i<noteArr.length; i++){
         noteName.innerHTML = noteArr[i].name;
         noteDate.innerHTML = noteArr[i].date;
 
-        noteCard.append(noteInfo)
+        tag = document.createElement('div');
+        tag.classList.add('tag2');
+        tag.innerHTML = "school";
+
+        tag3 = document.createElement('div');
+        tag3.classList.add('tag2');
+        tag3.innerHTML = "work";
+
+        noteCard.append(noteHeader)
+        noteHeader.append(noteInfo);
+        noteHeader.append(noteInfo2)
         noteInfo.append(noteName);
         noteInfo.append(noteDate);
+        noteInfo2.append(tag);
+        noteInfo2.append(tag3);
+      
 
         myNotesLister.append(noteCard);
     }
@@ -209,7 +249,7 @@ var infoArr = new Array();
 function loadUserInfo(){
 	
 	$.getJSON('WS_usr_info.php?uid='+useruid+'&nocache=' + (new Date()).getTime(), function (data) {
-        console.log(data);
+
         infoArr = data.userlist;
 		
 	})
@@ -279,16 +319,14 @@ function fetchloadUserShortcuts(){
 
 	$.getJSON('WS_usr_shortcuts.php?uid='+useruid+'&nocache=' + (new Date()).getTime(), function (data) {
         shortcutArr = data.shortcutlist;
-        console.log(shortcutArr);	
+	
 	})
 	.error(function(){
 		//console.log('error: json not loaded');
 		
 	})
     .done(function() {
-        console.log("hii")
-        console.log(shortcutArr[0].shortcutname);
-        console.log(shortcutArr[1].shortcutname);
+
         for(i = 0; i<shortcutArr.length;i++){
             shortcut = document.createElement('div');
             shortcut.classList.add('usrShortcut');
@@ -303,3 +341,28 @@ function fetchloadUserShortcuts(){
 
 	});
 }
+
+function fetchloadUserTags(){
+
+	$.getJSON('WS_usr_tags.php?uid='+useruid+'&nocache=' + (new Date()).getTime(), function (data) {
+        console.log(data);
+        tagArr = data.taglist;
+	})
+	.error(function(){
+		//console.log('error: json not loaded');
+		
+	})
+    .done(function() {
+        console.log("hji");
+        for(i = 0; i<tagArr.length;i++){
+            tag = document.createElement('div');
+            tag.classList.add('tag');
+            tag.innerHTML = tagArr[i].tagname;
+    
+            taglister.append(tag);
+    
+        }
+
+	});
+}
+

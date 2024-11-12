@@ -465,6 +465,25 @@ body{
 .noteInfo{
     display: flex;
     flex-direction: column;
+    width: 60%;
+    height: 50px;
+    bottom: 0px;
+}
+
+.noteInfo2{
+    margin-top: 5px;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 60%;
+    height: 50px;
+    bottom: 0px;
+}
+
+.noteHeader{
+    display: flex;
+    flex-direction: row;
     width: 100%;
     height: 50px;
     background-color: rgb(255, 255, 255);
@@ -632,9 +651,55 @@ body{
     transition: .05s ease-in-out;
   }
 
+  
+
   .tag:hover{
     margin-top: -1px;
     height: 30px ;
     color: #bedeff;
     cursor: pointer;
   }
+
+  .tag2{
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    font-family: "Dongle", sans-serif;
+    font-size: 24px;
+    color: #65819f;
+    color: #81a7d0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 11px;
+    width: max-content;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 1px;
+    padding-bottom: 0px;
+    margin: 3.5px;
+    margin-bottom: 5px;
+    height: 27px;
+    background-color: #181e25c5;
+    font-weight: 400;
+    transition: .05s ease-in-out;
+  }
+
+  .tag2:hover{
+    height: 27.5px ;
+    color: #bedeff;
+    cursor: pointer;
+  }
+
+  .addtag{
+    font-size: 25px;
+    color: #3d5772fd;
+    position:relative;
+    left: 5px;
+    top: 5px;
+    margin-right: 9.5px;
+  }
+
+  .addtag:hover{
+    color: #486585fd;
+}
