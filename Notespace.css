@@ -692,6 +692,7 @@ body{
   }
 
   .addtag{
+    transition: all 0.3s;
     font-size: 25px;
     color: #3d5772fd;
     position:relative;
@@ -701,5 +702,6 @@ body{
   }
 
   .addtag:hover{
-    color: #486585fd;
-}
+    color: #577494fd;
+    transform: translateY(-2.5px);
+} 

@@ -58,6 +58,8 @@ function loadData(){
 		
 		while ($row = mysqli_fetch_assoc($result)) {
 			$noteList .= '{"name":"'.$row['note_name'].'",';
+			$noteList .= '"tag1":"'.$row['tagone'].'",';
+			$noteList .= '"tag2":"'.$row['tagtwo'].'",';
 			$noteList .= '"date":"'.$row['note_date'].'",';
 			$noteList .= '"content":"'.$row['note_content'].'"},';
 		}

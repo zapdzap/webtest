@@ -162,11 +162,12 @@ for(let i = 0; i<noteArr.length; i++){
 
         tag = document.createElement('div');
         tag.classList.add('tag2');
-        tag.innerHTML = "school";
+        tag.innerHTML = noteArr[i].tag1;
 
         tag3 = document.createElement('div');
         tag3.classList.add('tag2');
-        tag3.innerHTML = "work";
+        tag3.innerHTML = noteArr[i].tag2;
+        console.log("YOOOWTF");
 
         noteCard.append(noteHeader)
         noteHeader.append(noteInfo);
