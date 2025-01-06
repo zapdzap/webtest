@@ -7,6 +7,8 @@ const useritems =document.getElementById('useritems');
 const searchInput = document.getElementById("searchForm");
 const shortcutlister = document.getElementById("shortcuts");
 const taglister = document.getElementById("tagList");
+const noteEditor = document.getElementById("noteEditor");
+const emptyWorkspace = document.getElementById("emptyWorkspace");
 
 var noteArr = new Array();
 var shortcutArr = new Array();
@@ -23,7 +25,13 @@ $(document).ready(function() {
     fetchloadUserTags();
   });
 	
-	
+
+function openNoteEditor(){
+
+    workspace.removeChild(emptyWorkspace);
+    noteEditor.style.display = "block";
+}
+
 function fetchUserNotes(){
 	
 	$.getJSON('WS_usr_notes.php?uid='+useruid+'&nocache=' + (new Date()).getTime(), function (data) {
@@ -95,6 +103,13 @@ function openUserNotes(){
       
 
         myNotesLister.append(noteCard);
+
+        noteCard.addEventListener('click', function(event) {
+                myNotes.style.display = "none";
+                workspace.removeChild(emptyWorkspace);
+                noteEditor.style.display = "block";
+                
+            });
     }
 
 
@@ -331,13 +346,77 @@ function fetchloadUserShortcuts(){
         for(i = 0; i<shortcutArr.length;i++){
             shortcut = document.createElement('div');
             shortcut.classList.add('usrShortcut');
-            icon = document.createElement("i");
-            icon.classList.add("fa-location-dot");
-            shortcut.append(icon);
-            shortcut.innerHTML = shortcutArr[i].shortcutname;
-    
+            
+            scname1 = document.createElement('p');
+            scname1.innerHTML = shortcutArr[i].shortcutname;
+            scname1.classList.add('scname')
+
+            scname1.id="scname"+i;
+
+            scname1.parent1=shortcut;
+
+            delbtn = document.createElement('i');
+            delbtn.classList.add('bx');
+            delbtn.classList.add('bxs-trash');
+
+            editbtn = document.createElement('i');
+            editbtn.id="editbtn"+i;
+            editbtn.neighbor = scname1;
+            editbtn.classList.add('bx');
+            editbtn.classList.add('bxs-pencil');
+            editbtn.parent1=shortcut;
+
+            // ADDING LISTENERS TO BUTTONS
+
+            btns = document.createElement('div');
+            btns.classList.add('SCbtns');
+            btns.append(editbtn);
+            btns.append(delbtn);
+
+
+            
+
+            shortcut.append(scname1);
+
+            shortcut.append(btns);
+
             shortcutlister.append(shortcut);
-    
+
+            
+
+            //
+
+            editbtn.addEventListener('click', (event) => {
+                event.target.parent1.style.borderRadius="10px";
+                event.target.parent1.style.background="rgb(63, 82, 100)"
+
+
+                console.log(event.target);
+                event.target.neighbor.contentEditable = "true";
+                event.target.neighbor.focus();
+              });
+            
+            scname1.addEventListener('keydown', (event) => { // update shortcut on database here
+                if (event.key === 'Enter') {
+                    event.target.parent1.style.borderRadius="0px";
+                    event.target.parent1.style.background="#1d4fd800";
+                    event.target.blur();
+                    event.target.contentEditable = "false";
+                }
+            });
+
+            scname1.addEventListener('blur', (event) => { // update shortcut on database here
+                    event.target.parent1.style.borderRadius="0px";
+                    event.target.parent1.style.background="#1d4fd800";
+                    event.target.contentEditable = "false";
+            });
+
+
+            
+
+              
+
+
         }
 
 	});
@@ -367,3 +446,56 @@ function fetchloadUserTags(){
 	});
 }
 
+// Text Editor
+
+function formatDoc(cmd, value=null) {
+	if(value) {
+		document.execCommand(cmd, false, value);
+	} else {
+		document.execCommand(cmd);
+	}
+}
+
+function addLink() {
+	const url = prompt('Insert url');
+	formatDoc('createLink', url);
+}
+
+
+
+
+const content = document.getElementById('content');
+
+content.addEventListener('mouseenter', function () {
+	const a = content.querySelectorAll('a');
+	a.forEach(item=> {
+		item.addEventListener('mouseenter', function () {
+			content.setAttribute('contenteditable', false);
+			item.target = '_blank';
+		})
+		item.addEventListener('mouseleave', function () {
+			content.setAttribute('contenteditable', true);
+		})
+	})
+})
+
+
+
+
+const filename = document.getElementById('filename');
+
+function fileHandle(value) {
+	if(value === 'new') {
+		content.innerHTML = '';
+		filename.value = 'untitled';
+	} else if(value === 'txt') {
+		const blob = new Blob([content.innerText])
+		const url = URL.createObjectURL(blob)
+		const link = document.createElement('a');
+		link.href = url;
+		link.download = `${filename.value}.txt`;
+		link.click();
+	} else if(value === 'pdf') {
+		html2pdf(content).save(filename.value);
+	}
+}
