@@ -50,11 +50,14 @@ function fetchUserNotes(){
 
 function openUserNotes(){
 
-    if(!(workspace.classList.contains('myNotes'))){
-        while(workspace.firstChild){
-            workspace.removeChild(workspace.firstChild);
-        }
+    const parentElement = document.getElementById("workspace");
+
+    for (let i = 0; i < parentElement.children.length; i++) {
+    const childElement = parentElement.children[i];
+
+    childElement.style.display = "none";
     }
+  
 
     myNotes = document.createElement('div');
     myNotes.classList.add('myNotes'); 
@@ -106,13 +109,14 @@ function openUserNotes(){
 
         noteCard.addEventListener('click', function(event) {
                 myNotes.style.display = "none";
-                workspace.removeChild(emptyWorkspace);
                 noteEditor.style.display = "block";
-                
+                idvalue = noteArr[i].id; // storing the note id value
+                namevalue = noteArr[i].name;
+                tag1value = noteArr[i].tag1;
+                tag2value = noteArr[i].tag2;
+                displayNoteContents(idvalue,namevalue,tag1value,tag2value); // calling the editor to display the text and other info.
             });
     }
-
-
 
    
     myNotes.append(myNotesLister);
@@ -498,4 +502,11 @@ function fileHandle(value) {
 	} else if(value === 'pdf') {
 		html2pdf(content).save(filename.value);
 	}
+}
+
+
+function displayNoteContents(idvalue,namevalue,tag1value,tag2value){ // value is Note ID, Display text content of note on the editor, as well as name and other stuff.     
+    
+    // write function here
+
 }

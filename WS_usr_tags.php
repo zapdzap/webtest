@@ -25,7 +25,7 @@ function loadData(){
 	
 	//Database connection info
 	
-	$host = "192.168.10.103";
+	$host = "192.168.28.72";
 	$user =  "fw2037505441";
 	$password ="AHkXB0ddnRs3uWO6Yz1aybN3zuoAFl";
 	$database = "db7710030035";
