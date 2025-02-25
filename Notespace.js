@@ -114,7 +114,8 @@ function openUserNotes(){
                 namevalue = noteArr[i].name;
                 tag1value = noteArr[i].tag1;
                 tag2value = noteArr[i].tag2;
-                displayNoteContents(idvalue,namevalue,tag1value,tag2value); // calling the editor to display the text and other info.
+                contentvalue = noteArr[i].content;
+                displayNoteContents(namevalue,tag1value,tag2value,contentvalue); // calling the editor to display the text and other info.
             });
     }
 
@@ -212,24 +213,6 @@ currentSpace.innerHTML = "MY NOTES";
 
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -468,6 +451,7 @@ function addLink() {
 
 
 
+
 const content = document.getElementById('content');
 
 content.addEventListener('mouseenter', function () {
@@ -482,9 +466,6 @@ content.addEventListener('mouseenter', function () {
 		})
 	})
 })
-
-
-
 
 const filename = document.getElementById('filename');
 
@@ -504,9 +485,17 @@ function fileHandle(value) {
 	}
 }
 
+content = document.getElementById("content");
+filename = document.getElementById("filename");
+tag31 = document.getElementById("tag31");
+tag32 = document.getElementById("tag32");
 
-function displayNoteContents(idvalue,namevalue,tag1value,tag2value){ // value is Note ID, Display text content of note on the editor, as well as name and other stuff.     
+function displayNoteContents(namevalue,tag1value,tag2value,contentvalue){ // value is Note ID, Display text content of note on the editor, as well as name and other stuff.     
     
-    // write function here
+    content.innerHTML = contentvalue;
+    filename.value = namevalue;
+    tag31.innerHTML=tag1value;
+    tag32.innerHTML=tag2value;
+
 
 }
